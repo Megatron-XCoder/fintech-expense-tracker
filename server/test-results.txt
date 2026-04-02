@@ -1,0 +1,41 @@
+FAIL tests/csvParser.test.js
+  CSV Parser Edge Cases & Logic
+    ├ù should categorize P2P transfers correctly as Personal Transfers rather than Investments (6 ms)
+    ├ù should seamlessly fix the newline-broken description bug (4 ms)
+    ΓêÜ should gracefully throw MALFORMED_CSV error for unparseable or completely missing data headers (3 ms)
+
+  ΓùÅ CSV Parser Edge Cases & Logic ΓÇ║ should categorize P2P transfers correctly as Personal Transfers rather than Investments
+
+    MALFORMED_CSV: Could not locate valid transaction headers or rows. Ensure this is a valid SBI statement format.
+
+      300 |
+      301 |   if (transactions.length === 0) {
+    > 302 |     throw new Error('MALFORMED_CSV: Could not locate valid transaction headers or rows. Ensure this is a valid SBI statement format.');
+          |           ^
+      303 |   }
+      304 |
+      305 |   return transactions;
+
+      at processData (utils/csvParser.js:302:11)
+      at Parser.processData (utils/csvParser.js:191:28)
+
+  ΓùÅ CSV Parser Edge Cases & Logic ΓÇ║ should seamlessly fix the newline-broken description bug
+
+    MALFORMED_CSV: Could not locate valid transaction headers or rows. Ensure this is a valid SBI statement format.
+
+      300 |
+      301 |   if (transactions.length === 0) {
+    > 302 |     throw new Error('MALFORMED_CSV: Could not locate valid transaction headers or rows. Ensure this is a valid SBI statement format.');
+          |           ^
+      303 |   }
+      304 |
+      305 |   return transactions;
+
+      at processData (utils/csvParser.js:302:11)
+      at Parser.processData (utils/csvParser.js:191:28)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        0.316 s, estimated 8 s
+Ran all test suites.
